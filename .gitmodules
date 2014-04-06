@@ -1,0 +1,15 @@
+[submodule "rawgps-tools"]
+	path = rawgps-tools
+	url = https://github.com/uf-mil/rawgps-tools.git
+[submodule "software-common"]
+	path = software-common
+	url = https://github.com/uf-mil/software-common.git
+[submodule "hardware-common"]
+	path = hardware-common
+	url = https://github.com/uf-mil/hardware-common.git
+[submodule "SubjuGator"]
+	path = SubjuGator
+	url = https://github.com/uf-mil/SubjuGator.git
+[submodule "PropaGator"]
+	path = PropaGator
+	url = https://github.com/uf-mil/PropaGator.git
