@@ -13,3 +13,6 @@
 [submodule "PropaGator"]
 	path = PropaGator
 	url = https://github.com/uf-mil/PropaGator.git
+[submodule "txros"]
+	path = txros
+	url = git@github.com:txros/txros.git
