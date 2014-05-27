@@ -1,2 +1,2 @@
 #!/bin/sh
-git pull && git submodule update --init --recursive --merge && git submodule foreach git pull origin master && git submodule update --init --recursive --merge
+git pull && git submodule update --init --recursive --merge && git submodule foreach git fetch origin && git submodule foreach git merge origin/master && git submodule update --init --recursive --merge
