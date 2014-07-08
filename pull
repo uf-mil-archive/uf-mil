@@ -1,2 +1,11 @@
 #!/bin/sh
+
 git pull && git submodule update --init --recursive --merge && git submodule foreach git fetch origin && git submodule foreach git merge origin/master && git submodule update --init --recursive --merge
+
+git submodule foreach 'git remote show | grep -q   sub  || git remote add   sub   sub:/srv/uf-mil/$path'
+git submodule foreach 'git remote show | grep -q mysub  || git remote add mysub   sub:~/catkin_ws/src/uf-mil/$path'
+git submodule foreach 'git remote show | grep -q   prop || git remote add   prop prop:/srv/uf-mil/$path'
+git submodule foreach 'git remote show | grep -q myprop || git remote add myprop prop:~/catkin_ws/src/uf-mil/$path'
+
+echo
+echo Success!

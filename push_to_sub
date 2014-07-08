@@ -1,2 +1,3 @@
 #!/bin/sh
-git submodule foreach 'git push sub:~/catkin_ws/src/uf-mil/$path HEAD:laptop --force'
+git submodule foreach 'git push mysub HEAD:refs/heads/laptop --force'
+echo Remember to merge in relevant \"laptop\" branches!

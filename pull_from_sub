@@ -1,2 +1,2 @@
 #!/bin/sh
-git submodule foreach 'git pull sub:~/catkin_ws/src/uf-mil/$path HEAD'
+git submodule foreach 'git pull mysub HEAD'
