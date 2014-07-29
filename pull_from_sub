@@ -1,2 +1,3 @@
 #!/bin/sh
+git pull mysub HEAD
 git submodule foreach 'git pull mysub HEAD'
