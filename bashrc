@@ -6,3 +6,4 @@ function cm() {
 
 alias wp="rosrun sub_launch send_waypoint"
 alias k="rosrun kill_handling kill"
+alias sc="rosrun sub_scripting run_method"
