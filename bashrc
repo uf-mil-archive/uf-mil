@@ -20,7 +20,7 @@ echo ""
 rosrun kill_handling kill_master 
 }
 
-function listkills(){
+function list_kills(){
 
 rostopic echo /kill &
 sleep 1
