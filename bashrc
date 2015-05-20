@@ -1,11 +1,13 @@
-function cm() {
-  THIS_PATH="${BASH_SOURCE[0]}";
-  THIS_DIR=$(dirname $THIS_PATH)
-  catkin_make -C $THIS_DIR/../.. -j2 -DCMAKE_CXX_FLAGS_RELWITHDEBINFO="-O2 -g" -DCMAKE_BUILD_TYPE=RelWithDebInfo $@
-}
+<launch>
 
-alias wp="rosrun sub_launch send_waypoint"
-alias k="rosrun kill_handling kill"
-alias sc="rosrun sub_scripting run_method"
-alias clc_k="rosrun kill_handling clear"
-alias list_k="rostopic echo /kill"
+<node name="azi_waypoints" pkg="azi_drive" type="azi_waypoint.py" />
+<include file="$(find azi_drive)/launch/joystick_azi.launch"/>
+<node name="azi_drive" pkg="azi_drive" type="azi_drive_node.py" 
+         output="screen" /> 
+<node name="azi_drive_control_manager" pkg="azi_drive" type="control_manager.py" 
+         output="screen" /> 
+<nocde name="azi_drive_visualizer" pkg="azi_drive" type="visualize_azi_drive.py" 
+         output="screen" /> 
+<node name="controller" pkg="controller" type="pd_controller.py" /> 
+
+</launch>
