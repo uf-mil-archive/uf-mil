@@ -1,13 +1,36 @@
-<launch>
+function cm() {
+  THIS_PATH="${BASH_SOURCE[0]}";
+  THIS_DIR=$(dirname $THIS_PATH)
+  catkin_make -C $THIS_DIR/../.. -j2 -DCMAKE_CXX_FLAGS_RELWITHDEBINFO="-O2 -g" -DCMAKE_BUILD_TYPE=RelWithDebInfo $@
+}
 
-<node name="azi_waypoints" pkg="azi_drive" type="azi_waypoint.py" />
-<include file="$(find azi_drive)/launch/joystick_azi.launch"/>
-<node name="azi_drive" pkg="azi_drive" type="azi_drive_node.py" 
-         output="screen" /> 
-<node name="azi_drive_control_manager" pkg="azi_drive" type="control_manager.py" 
-         output="screen" /> 
-<nocde name="azi_drive_visualizer" pkg="azi_drive" type="visualize_azi_drive.py" 
-         output="screen" /> 
-<node name="controller" pkg="controller" type="pd_controller.py" /> 
+alias wp="rosrun sub_launch send_waypoint"
+alias clc_k="rosrun kill_handling clear"
+alias sc="rosrun sub_scripting run_method"
 
-</launch>
+function k() {
+rosrun kill_handling kill &
+sleep 2
+kill -SIGINT $!
+
+}
+
+
+function core(){
+roscore &
+echo ""
+echo "ROSCORE STARTED" 
+echo ""
+echo ""
+echo "KILL HANDLER STARTED" 
+echo ""
+rosrun kill_handling kill_master 
+}
+
+function listkills(){
+
+rostopic echo /kill &
+sleep 1
+kill -SIGINT $!
+
+}
